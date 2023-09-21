@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[] = "Programacao";
+    char str2[] = "programacao";
+
+    // Comparação de strings (case-sensitive)
+    if (strcmp(str1, str2) == 0) {
+        printf("As strings são iguais (case-sensitive).\n");
+    } else {
+        printf("As strings são diferentes (case-sensitive).\n");
+    }
+
+    // Comparação de strings (case-insensitive)
+    if (strcasecmp(str1, str2) == 0) {
+        printf("As strings são iguais (case-insensitive).\n");
+    } else {
+        printf("As strings são diferentes (case-insensitive).\n");
+    }
+
+    return 0;
+}
