@@ -1,0 +1,5 @@
+Tópico 2: Variáveis
+int idade = 25; // Declaração de uma variável inteira chamada 'idade' com o valor 25
+float altura = 1.75; // Declaração de uma variável de ponto flutuante chamada 'altura'
+char letra = 'A'; // Declaração de uma variável de caractere chamada 'letra'
+
