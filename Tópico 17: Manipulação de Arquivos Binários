@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+struct Pessoa {
+    char nome[50];
+    int idade;
+};
+
+int main() {
+    struct Pessoa pessoa;
+    FILE* arquivo;
+
+    arquivo = fopen("pessoa.dat", "wb");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+
+    strcpy(pessoa.nome, "João");
+    pessoa.idade = 25;
+
+    fwrite(&pessoa, sizeof(struct Pessoa), 1, arquivo);
+
+    fclose(arquivo);
+
+    arquivo = fopen("pessoa.dat", "rb");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+
+    fread(&pessoa, sizeof(struct Pessoa), 1, arquivo);
+
+    printf("Nome: %s\n", pessoa.nome);
+    printf("Idade: %d\n", pessoa.idade);
+
+    fclose(arquivo);
+
+    return 0;
+}
