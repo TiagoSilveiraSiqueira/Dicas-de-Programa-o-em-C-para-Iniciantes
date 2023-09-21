@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 100
+
+struct Pilha {
+    int itens[MAX];
+    int topo;
+};
+
+void inicializar(struct Pilha *p) {
+    p->topo = -1;
+}
+
+int estaVazia(struct Pilha *p) {
+    return (p->topo == -1);
+}
+
+int estaCheia(struct Pilha *p) {
+    return (p->topo == MAX - 1);
+}
+
+void empilhar(struct Pilha *p, int valor) {
+    if (!estaCheia(p)) {
+        p->itens[++(p->topo)] = valor;
+    } else {
+        printf("A pilha está cheia.\n");
+    }
+}
+
+int desempilhar(struct Pilha *p) {
+    if (!estaVazia(p)) {
+        return p->itens[(p->topo)--];
+    } else {
+        printf("A pilha está vazia.\n");
+        return -1; // Valor inválido
+    }
+}
+
+int main() {
+    struct Pilha pilha;
+    inicializar(&pilha);
+
+    empilhar(&pilha, 10);
+    empilhar(&pilha, 20);
+    empilhar(&pilha, 30);
+
+    printf("Elemento desempilhado: %d\n", desempilhar(&pilha));
+    printf("Elemento desempilhado: %d\n", desempilhar(&pilha));
+    printf("Elemento desempilhado: %d\n", desempilhar(&pilha));
+
+    return 0;
+}
