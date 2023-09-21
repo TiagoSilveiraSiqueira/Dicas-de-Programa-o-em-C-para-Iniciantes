@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Pessoa {
+    char nome[50];
+    int idade;
+};
+
+int main() {
+    int tamanho = 3;
+    struct Pessoa *pessoas = (struct Pessoa *)malloc(tamanho * sizeof(struct Pessoa));
+
+    if (pessoas == NULL) {
+        printf("Erro na alocação de memória.\n");
+        return 1;
+    }
+
+    // Preenchendo os dados das pessoas
+    for (int i = 0; i < tamanho; i++) {
+        printf("Digite o nome da pessoa %d: ", i + 1);
+        scanf("%s", pessoas[i].nome);
+        printf("Digite a idade da pessoa %d: ", i + 1);
+        scanf("%d", &pessoas[i].idade);
+    }
+
+    // Exibindo os dados
+    printf("\nPessoas cadastradas:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("Nome: %s, Idade: %d\n", pessoas[i].nome, pessoas[i].idade);
+    }
+
+    free(pessoas);
+    return 0;
+}
