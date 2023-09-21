@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* criarNo(int valor) {
+    struct Node* novo = (struct Node*)malloc(sizeof(struct Node));
+    novo->data = valor;
+    novo->next = NULL;
+    return novo;
+}
+
+int main() {
+    struct Node* lista = NULL;
+
+    lista = criarNo(10);
+    lista->next = criarNo(20);
+    lista->next->next = criarNo(30);
+
+    struct Node* atual = lista;
+    while (atual != NULL) {
+        printf("%d ", atual->data);
+        atual = atual->next;
+    }
+
+    return 0;
+}
