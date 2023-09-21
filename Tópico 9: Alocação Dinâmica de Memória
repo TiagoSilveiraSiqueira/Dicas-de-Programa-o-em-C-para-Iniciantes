@@ -1,0 +1,9 @@
+int *ponteiro;
+ponteiro = (int *)malloc(5 * sizeof(int));
+
+for (int i = 0; i < 5; i++) {
+    ponteiro[i] = i * 2;
+    printf("ponteiro[%d]: %d\n", i, ponteiro[i]);
+}
+
+free(ponteiro);
