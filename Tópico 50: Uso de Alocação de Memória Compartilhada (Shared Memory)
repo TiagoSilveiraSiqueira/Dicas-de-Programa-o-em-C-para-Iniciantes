@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+int main() {
+    key_t chave = 1234;
+    int tamanho = 1024;
+    int shmid;
+    char *memoria_compartilhada;
+
+    shmid = shmget(chave, tamanho, IPC_CREAT | 0666);
+    if (shmid == -1) {
+        perror("shmget");
+        exit(1);
+    }
+
+    memoria_compartilhada = (char *)shmat(shmid, NULL, 0);
+    if (memoria_compartilhada == (char *)-1) {
+        perror("shmat");
+        exit(1);
+    }
+
+    strcpy(memoria_compartilhada, "Dados compartilhados");
+
+    printf("Memória compartilhada: %s\n", memoria_compartilhada);
+
+    shmdt(memoria_compartilhada);
+
+    return 0;
+}
