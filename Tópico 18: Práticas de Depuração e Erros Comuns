@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+    int x = 5;
+    int y = 0;
+
+    // Erro comum: Divisão por zero
+    int resultado = x / y;
+
+    printf("Resultado: %d\n", resultado);
+
+    return 0;
+}
