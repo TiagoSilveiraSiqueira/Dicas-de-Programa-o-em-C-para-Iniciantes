@@ -1,0 +1,9 @@
+Tópico 3: Estruturas de Controle (if-else)
+
+int numero = 10;
+
+if (numero > 5) {
+    printf("O número é maior que 5\n");
+} else {
+    printf("O número não é maior que 5\n");
+}
