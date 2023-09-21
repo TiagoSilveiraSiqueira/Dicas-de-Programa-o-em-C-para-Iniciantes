@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main() {
+    int numero = 10;
+    printf("O número %d é %s.\n", numero, (numero % 2 == 0) ? "par" : "ímpar");
+
+    return 0;
+}
