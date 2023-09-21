@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+struct Node* newNode(int valor) {
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    node->data = valor;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+
+int main() {
+    struct Node* raiz = newNode(10);
+    raiz->left = newNode(5);
+    raiz->right = newNode(15);
+
+    printf("Árvore binária: %d\n", raiz->data);
+    printf("Filho esquerdo: %d\n", raiz->left->data);
+    printf("Filho direito: %d\n", raiz->right->data);
+
+    free(raiz->left);
+    free(raiz->right);
+    free(raiz);
+
+    return 0;
+}
