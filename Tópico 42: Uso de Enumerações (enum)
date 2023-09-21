@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+enum DiaDaSemana {
+    SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO, DOMINGO
+};
+
+int main() {
+    enum DiaDaSemana hoje = QUARTA;
+
+    switch (hoje) {
+        case SEGUNDA:
+            printf("Hoje é segunda-feira.\n");
+            break;
+        case TERCA:
+            printf("Hoje é terça-feira.\n");
+            break;
+        case QUARTA:
+            printf("Hoje é quarta-feira.\n");
+            break;
+        case QUINTA:
+            printf("Hoje é quinta-feira.\n");
+            break;
+        case SEXTA:
+            printf("Hoje é sexta-feira.\n");
+            break;
+        case SABADO:
+            printf("Hoje é sábado.\n");
+            break;
+        case DOMINGO:
+            printf("Hoje é domingo.\n");
+            break;
+        default:
+            printf("Dia inválido.\n");
+    }
+
+    return 0;
+}
