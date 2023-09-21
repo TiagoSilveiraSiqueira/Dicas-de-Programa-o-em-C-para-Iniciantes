@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Aluno {
+    char nome[50];
+    int idade;
+};
+
+void salvarCSV(struct Aluno alunos[], int tamanho, const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    fprintf(arquivo, "Nome,Idade\n");
+
+    for (int i = 0; i < tamanho; i++) {
+        fprintf(arquivo, "%s,%d\n", alunos[i].nome, alunos[i].idade);
+    }
+
+    fclose(arquivo);
+}
+
+int main() {
+    struct Aluno alunos[3] = {
+        {"Alice", 20},
+        {"Bob", 22},
+        {"Carol", 21}
+    };
+
+    salvarCSV(alunos, 3, "alunos.csv");
+
+    printf("Dados dos alunos salvos em 'alunos.csv'.\n");
+
+    return 0;
+}
