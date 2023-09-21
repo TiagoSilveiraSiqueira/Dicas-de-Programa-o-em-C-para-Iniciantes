@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double numero = 16.0;
+    double raiz = sqrt(numero);
+
+    printf("A raiz quadrada de %.2lf é %.2lf\n", numero, raiz);
+
+    return 0;
+}
