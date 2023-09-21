@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int soma(int a, int b) {
+    return a + b;
+}
+
+int subtracao(int a, int b) {
+    return a - b;
+}
+
+int operacao(int x, int y, int (*funcao)(int, int)) {
+    return funcao(x, y);
+}
+
+int main() {
+    int resultado;
+
+    resultado = operacao(5, 3, soma);
+    printf("Resultado da soma: %d\n", resultado);
+
+    resultado = operacao(5, 3, subtracao);
+    printf("Resultado da subtração: %d\n", resultado);
+
+    return 0;
+}
