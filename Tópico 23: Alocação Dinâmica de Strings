@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char *nome;
+
+    // Alocação de memória para uma string
+    nome = (char *)malloc(20 * sizeof(char));
+
+    if (nome == NULL) {
+        printf("Erro na alocação de memória.\n");
+        return 1;
+    }
+
+    // Copiando uma string para a memória alocada
+    strcpy(nome, "Programação em C");
+
+    printf("String: %s\n", nome);
+
+    // Liberação de memória
+    free(nome);
+
+    return 0;
+}
