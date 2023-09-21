@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdarg.h>
+
+double media(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    double soma = 0;
+
+    for (int i = 0; i < count; i++) {
+        soma += va_arg(args, double);
+    }
+
+    va_end(args);
+    return soma / count;
+}
+
+int main() {
+    double m1 = media(3, 2.0, 3.5, 4.0);
+    double m2 = media(4, 1.0, 2.0, 3.0, 4.0);
+
+    printf("Média 1: %.2lf\n", m1);
+    printf("Média 2: %.2lf\n", m2);
+
+    return 0;
+}
