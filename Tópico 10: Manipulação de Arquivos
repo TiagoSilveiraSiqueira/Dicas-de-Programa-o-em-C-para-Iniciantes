@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    FILE *arquivo;
+    char texto[100];
+
+    arquivo = fopen("meuarquivo.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+
+    while (fgets(texto, sizeof(texto), arquivo) != NULL) {
+        printf("%s", texto);
+    }
+
+    fclose(arquivo);
+    return 0;
+}
