@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wformat"
+
+int main() {
+    int numero = 5;
+    printf("Número: %d\n", numero);  // Isso não gerará um aviso de formato
+
+    return 0;
+}
+
+#pragma GCC diagnostic pop
