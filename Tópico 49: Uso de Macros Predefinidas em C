@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main() {
+    printf("Este código está no arquivo %s, na linha %d.\n", __FILE__, __LINE__);
+    printf("Foi compilado em %s às %s.\n", __DATE__, __TIME__);
+
+    return 0;
+}
