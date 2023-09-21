@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    FILE *arquivo;
+    char texto[] = "Este é um exemplo de escrita em arquivo.\n";
+
+    // Escrevendo em um arquivo de texto
+    arquivo = fopen("exemplo.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+    fputs(texto, arquivo);
+    fclose(arquivo);
+
+    // Lendo de um arquivo de texto
+    arquivo = fopen("exemplo.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+    char linha[100];
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        printf("%s", linha);
+    }
+    fclose(arquivo);
+
+    return 0;
+}
