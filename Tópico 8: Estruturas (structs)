@@ -1,0 +1,13 @@
+struct Pessoa {
+    char nome[50];
+    int idade;
+};
+
+int main() {
+    struct Pessoa pessoa1;
+    strcpy(pessoa1.nome, "Alice");
+    pessoa1.idade = 30;
+
+    printf("Nome: %s, Idade: %d\n", pessoa1.nome, pessoa1.idade);
+    return 0;
+}
