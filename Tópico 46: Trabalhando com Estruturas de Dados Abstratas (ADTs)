@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    void *data;
+    struct Node *next;
+};
+
+struct Node *criarNo(void *data) {
+    struct Node *novo = (struct Node *)malloc(sizeof(struct Node));
+    if (novo == NULL) {
+        return NULL;
+    }
+    novo->data = data;
+    novo->next = NULL;
+    return novo;
+}
+
+int main() {
+    int num1 = 10;
+    double num2 = 3.14;
+    
+    struct Node *lista = criarNo(&num1);
+    lista->next = criarNo(&num2);
+
+    int *valor1 = (int *)lista->data;
+    double *valor2 = (double *)lista->next->data;
+
+    printf("Valor 1: %d\n", *valor1);
+    printf("Valor 2: %.2lf\n", *valor2);
+
+    free(lista->next);
+    free(lista);
+
+    return 0;
+}
