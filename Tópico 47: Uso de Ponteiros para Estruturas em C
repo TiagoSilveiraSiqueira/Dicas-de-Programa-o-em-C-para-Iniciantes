@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+struct Pessoa {
+    char nome[50];
+    int idade;
+};
+
+int main() {
+    struct Pessoa pessoa1 = {"Alice", 25};
+    struct Pessoa pessoa2 = {"Bob", 30};
+
+    struct Pessoa *ponteiroParaPessoa;
+
+    ponteiroParaPessoa = &pessoa1;
+
+    printf("Dados da Pessoa 1: %s, %d anos\n", ponteiroParaPessoa->nome, ponteiroParaPessoa->idade);
+
+    ponteiroParaPessoa = &pessoa2;
+
+    printf("Dados da Pessoa 2: %s, %d anos\n", ponteiroParaPessoa->nome, ponteiroParaPessoa->idade);
+
+    return 0;
+}
